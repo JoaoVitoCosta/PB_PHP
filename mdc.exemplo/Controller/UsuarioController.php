@@ -36,8 +36,13 @@ class UsuarioController{
     public function atualizar(){
         $usuario = new Usuario($_POST['nome'], $_POST ['email']);
         $usuario->atualizar($_GET['id']);
-        header('Location: /PB_PHP/MDC.Exemplo/usuario/telaEditar?id='.($GET['id']));
+        header('Location: /PB_PHP/MDC.Exemplo/usuario/telaEditar?id='.($_GET['id']));
         exit;
-    }
 
+    }
+public function excluir(){
+    Usuario::excluir($_GET['id']);
+    header ('Location:Location: /PB_PHP/MDC.Exemplo/usuario/listar');
+    exit;
+}
 }
